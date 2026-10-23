@@ -44,4 +44,3 @@ h1,h2,h3{overflow-wrap:break-word}h1{font:600 clamp(34px,4.3vw,56px)/1.12 var(--
 
 .project-summary{padding-inline-start:20px;margin:18px 0;color:var(--muted);font-size:14px;line-height:1.65}.project-summary li+li{margin-top:12px}.project-card .project-status{font-size:12px;font-weight:600;color:var(--purple-dark)}
 
-.project-preview{margin:18px 0 20px}.project-preview img{display:block;width:100%;height:auto;aspect-ratio:2900/1494;object-fit:contain;background:var(--bg);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--line)}.project-preview figcaption{font:10px/1.5 var(--mono);color:var(--muted);margin-top:9px}.wonda-project>.project-footer{margin-top:20px}
