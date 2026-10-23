@@ -83,12 +83,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewport = window.visualViewport;
     const vw = viewport?.width || window.innerWidth, vh = viewport?.height || window.innerHeight;
     const progress = Math.min(1, Math.max(0,window.scrollY / Math.max(1,document.documentElement.scrollHeight - window.innerHeight)));
-    let x = Math.max(4,vw - w - 10);
+    let x = Math.max(4,vw - w - 6);
     let y = 116 + progress * Math.max(0,vh - h - 144);
     let onTrail = false;
     if (stage && !reduced.matches && !celebrating) {
+      const headerBottom = Math.max(12,document.querySelector('.topbar')?.getBoundingClientRect().bottom || 92);
+      // Keep the walking track below the sticky header while the cards pass beneath it.
+      stage.style.top = `${Math.ceil(headerBottom + 10)}px`;
       const rect = stage.getBoundingClientRect();
-      if (rect.top >= 105 && rect.bottom < vh - 12) {
+      const feet = rect.bottom - 8;
+      if (feet - h >= headerBottom + 4 && feet <= vh - 12) {
         const fraction = rail.scrollLeft / Math.max(1,rail.scrollWidth - rail.clientWidth);
         x = rect.left + 12 + Math.max(0,Math.min(1,fraction)) * Math.max(0,rect.width - w - 24);
         y = rect.bottom - h - 8; onTrail = true;

@@ -1,5 +1,5 @@
 /* The character has its own lane, so it never sits over portfolio text. */
-body.has-companion{padding-inline-end:104px}
+body.has-companion{padding-inline-end:92px}
 .scroll-companion{position:fixed;top:0;left:0;width:80px;height:112px;z-index:40;pointer-events:none;transition:transform 150ms ease-out;will-change:transform;contain:layout style}
 .scroll-companion[hidden]{display:none}.researcher-sprite{display:block;width:100%;height:100%;overflow:visible;image-rendering:pixelated}.sprite-facing{height:100%;transform-origin:center}.faces-left .sprite-facing{transform:scaleX(-1)}
 .sprite-arm{transform-box:fill-box;transform-origin:50% 5%}.sprite-leg{transform-box:fill-box;transform-origin:50% 0%}
@@ -17,8 +17,8 @@ body.has-companion{padding-inline-end:104px}
 @keyframes companion-swing{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(12deg)}}
 @keyframes companion-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1px)}}
 @keyframes companion-throw{0%{transform:rotate(0)}35%,65%{transform:rotate(-135deg)}100%{transform:rotate(0)}}
-@media(max-width:850px){body.has-companion{padding-inline-end:88px}.scroll-companion{width:68px;height:95.2px}.companion-trail{height:126px}}
-@media(max-width:580px){body.has-companion{padding-inline-end:74px}.scroll-companion{width:56px;height:78.4px}.companion-trail{height:112px}.trail-sign{font-size:8px;bottom:14px;right:10px;max-width:180px}.companion-bubble{padding:11px 12px;font-size:15px}.companion-bubble span{font-size:11px}.footer{align-items:start}.companion-toggle{font-size:10px}}
+@media(max-width:850px){body.has-companion{padding-inline-end:80px}.scroll-companion{width:68px;height:95.2px}.companion-trail{height:126px}}
+@media(max-width:580px){body.has-companion{padding-inline-end:68px}.scroll-companion{width:56px;height:78.4px}.companion-trail{height:112px}.trail-sign{font-size:8px;bottom:14px;right:10px;max-width:180px}.companion-bubble{padding:11px 12px;font-size:15px}.companion-bubble span{font-size:11px}.footer{align-items:start}.companion-toggle{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.scroll-companion{transition:none}.scroll-companion *{animation:none!important}.cv-flight{display:none!important}.companion-trail{display:none}}
 @media print{body.has-companion{padding:0}.scroll-companion,.companion-trail,.companion-toggle,.companion-status,.cv-flight{display:none!important}}
 
@@ -26,3 +26,9 @@ body.has-companion{padding-inline-end:104px}
 .scroll-companion.is-narrating .companion-bubble{bottom:8px;box-sizing:border-box;font:500 14px/1.5 Inter,sans-serif;padding:12px 14px}
 .companion-trail{height:180px}.companion-trail .trail-sign{bottom:auto;top:8px}
 @media(max-width:580px){.companion-trail{height:190px}.scroll-companion.is-narrating .companion-bubble{font-size:13px;padding:10px 12px}}
+
+/* Keep only a character-width gutter, including on wide desktop screens. */
+body.has-companion .site-shell{width:calc(100% - 40px);max-width:none;margin-inline-start:32px;margin-inline-end:8px}
+.companion-trail{position:sticky;top:104px;z-index:20;background-color:var(--bg);background-image:radial-gradient(var(--line) .8px,transparent .8px);background-size:16px 16px}
+@media(max-width:580px){body.has-companion .site-shell{width:calc(100% - 24px);margin-inline-start:16px;margin-inline-end:8px}}
+@media print{body.has-companion .site-shell{width:100%;margin:0}}
